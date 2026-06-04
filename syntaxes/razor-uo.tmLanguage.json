@@ -1,0 +1,123 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Razor UO Script",
+  "scopeName": "source.razor-uo",
+  "fileTypes": ["uos"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#control-flow" },
+    { "include": "#logical-keywords" },
+    { "include": "#silent-commands" },
+    { "include": "#commands" },
+    { "include": "#expressions" },
+    { "include": "#predefined-vars" },
+    { "include": "#numbers" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.razor-uo",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.line.number-sign.razor-uo",
+          "match": "#.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.razor-uo",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "variable.other.interpolated.razor-uo",
+              "match": "\\{\\{[^}]+\\}\\}"
+            },
+            {
+              "name": "constant.character.escape.razor-uo",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.razor-uo",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "variable.other.interpolated.razor-uo",
+              "match": "\\{\\{[^}]+\\}\\}"
+            },
+            {
+              "name": "constant.character.escape.razor-uo",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "control-flow": {
+      "name": "keyword.control.razor-uo",
+      "match": "(?i)\\b(if|elseif|else|endif|while|endwhile|for|endfor|foreach|break|continue|stop|loop|replay)\\b"
+    },
+    "logical-keywords": {
+      "name": "keyword.operator.logical.razor-uo",
+      "match": "(?i)\\b(and|or|not|as|in)\\b"
+    },
+    "silent-commands": {
+      "comment": "Commands prefixed with @ to silence warnings",
+      "match": "(?i)^([ \\t]*)(@)(attack|cast|classicuo|cuo|cleardragdrop|clearhands|cooldown|dclick|dclicktype|dress|drop|droprelloc|findtypelist|getlabel|hotkey|interrupt|lift|lifttype|music|potion|rename|random|script|setability|setskill|setvar|setvariable|skill|sound|unsetvar|virtue|walk|wait|pause|undress|warmode|organizer|restock|scavenger|sell|useonce|gumpresponse|gumpclose|menu|menuresponse|promptresponse|waitforgump|waitformenu|waitforprompt|clearignore|ignore|unignore|clearlist|createlist|poplist|pushlist|removelist|alliance|clearsysmsg|emote|guild|overhead|say|msg|sysmsg|waitforsysmsg|wfsysmsg|whisper|yell|clearall|lasttarget|setlasttarget|target|targetrelloc|targetloc|targettype|waitfortarget|wft|createtimer|removetimer|settimer)\\b",
+      "captures": {
+        "2": { "name": "keyword.operator.silent.razor-uo" },
+        "3": { "name": "support.function.razor-uo" }
+      }
+    },
+    "commands": {
+      "comment": "Commands at the start of a line (without @ prefix)",
+      "match": "(?i)^[ \\t]*(attack|cast|classicuo|cuo|cleardragdrop|clearhands|cooldown|dclick|dclicktype|dress|drop|droprelloc|findtypelist|getlabel|hotkey|interrupt|lift|lifttype|music|potion|rename|random|script|setability|setskill|setvar|setvariable|skill|sound|unsetvar|virtue|walk|wait|pause|undress|warmode|organizer|restock|scavenger|sell|useonce|gumpresponse|gumpclose|menu|menuresponse|promptresponse|waitforgump|waitformenu|waitforprompt|clearignore|ignore|unignore|clearlist|createlist|poplist|pushlist|removelist|alliance|clearsysmsg|emote|guild|overhead|say|msg|sysmsg|waitforsysmsg|wfsysmsg|whisper|yell|clearall|lasttarget|setlasttarget|targetrelloc|targetloc|targettype|waitfortarget|wft|createtimer|removetimer|settimer)\\b",
+      "captures": {
+        "1": { "name": "support.function.razor-uo" }
+      }
+    },
+    "expressions": {
+      "comment": "Player attribute and conditional expressions",
+      "name": "support.type.property-name.razor-uo",
+      "match": "(?i)\\b(hp|maxhp|hits|maxhits|mana|maxmana|stam|maxstam|str|dex|int|weight|maxweight|followers|maxfollowers|diffhits|diffhp|diffmana|diffstam|diffweight|hidden|mounted|paralyzed|poisoned|warmode|invuln|invul|blessed|lhandempty|rhandempty|name|position|count|counter|findtype|insysmsg|insysmessage|itemcount|queued|targetexists|varexist|varexists|findbuff|finddebuff|inlist|list|listexists|timer|timerexists|timerexist|dead|criminal|innocent|enemy|nonfriendly|friendly|red|murderer|gray|grey|blue|friend|humanoid|monster|closest|next|prev|beneficial|harmful|neutral|find|findlayer|findtypelist|noto|hue|counttype|gumpexists|ingump|bandaging|pvp|casting|atlist|invulnerable)\\b"
+    },
+    "predefined-vars": {
+      "comment": "Pre-defined variable names",
+      "name": "variable.language.razor-uo",
+      "match": "(?i)\\b(self|backpack|hands|index|lastobject|lefthand|righthand|ground)\\b"
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.razor-uo",
+          "match": "\\b0[xX][0-9a-fA-F]+\\b"
+        },
+        {
+          "name": "constant.numeric.decimal.razor-uo",
+          "match": "\\b\\d+(\\.\\d+)?\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.razor-uo",
+          "match": "==|!=|<=|>=|<|>"
+        },
+        {
+          "name": "keyword.operator.assignment.razor-uo",
+          "match": "(?<![=!<>])=(?!=)"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "razor-uo-lsp",
+  "displayName": "Razor UO Script",
+  "description": "Language support for Razor UO Script (.uos) files with autocompletion, hover docs, and diagnostics",
+  "version": "0.1.0",
+  "publisher": "razor-uo",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "razor",
+    "ultima online",
+    "uo",
+    "script",
+    "uos"
+  ],
+  "activationEvents": [],
+  "main": "./client/out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "razor-uo",
+        "aliases": [
+          "Razor UO Script",
+          "razor-uo"
+        ],
+        "extensions": [
+          ".uos"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "razor-uo",
+        "scopeName": "source.razor-uo",
+        "path": "./syntaxes/razor-uo.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint . --ext .ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/razor-uo/razor-uo-lsp.git"
+  },
+  "license": "MIT"
+}

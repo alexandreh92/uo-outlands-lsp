@@ -1,0 +1,16 @@
+{
+  "name": "razor-uo-lsp-client",
+  "description": "Razor UO Script LSP client for VS Code",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/node": "^18.19.0"
+  }
+}

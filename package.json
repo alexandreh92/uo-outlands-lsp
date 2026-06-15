@@ -1,6 +1,6 @@
 {
   "name": "razor-outlands-lsp",
-  "displayName": "Razor UO Outlands LSP",
+  "displayName": "RazorUO Outlands LSP",
   "description": "Language support for Razor UO Script (.uos) files with autocompletion, hover docs, and diagnostics",
   "version": "0.1.1",
   "publisher": "StapzDevelopment",
@@ -63,5 +63,10 @@
     "type": "git",
     "url": "https://github.com/alexandreh92/uo-outlands-lsp"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vscode-languageclient": "^10.0.0",
+    "vscode-languageserver": "^10.0.0",
+    "vscode-languageserver-textdocument": "^1.0.13"
+  }
 }

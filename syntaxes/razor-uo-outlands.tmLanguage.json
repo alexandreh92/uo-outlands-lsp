@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Razor UO Script",
-  "scopeName": "source.razor-uo-outlands",
+  "scopeName": "source.razor-outlands",
   "fileTypes": ["uos"],
   "patterns": [
     { "include": "#comments" },

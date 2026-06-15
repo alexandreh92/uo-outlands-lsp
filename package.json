@@ -1,9 +1,9 @@
 {
-  "name": "razor-uo-outlands-lsp",
+  "name": "razor-outlands-lsp",
   "displayName": "Razor UO Outlands LSP",
   "description": "Language support for Razor UO Script (.uos) files with autocompletion, hover docs, and diagnostics",
   "version": "0.1.1",
-  "publisher": "AlexandreStapenhorst",
+  "publisher": "StapzDevelopment",
   "icon": "icon.webp",
   "engines": {
     "vscode": "^1.75.0"
@@ -22,17 +22,15 @@
     "script",
     "uos"
   ],
-  "activationEvents": [
-    "onLanguage:razor-uo-outlands"
-  ],
+  "activationEvents": [],
   "main": "./client/out/extension.js",
   "contributes": {
     "languages": [
       {
-        "id": "razor-uo-outlands",
+        "id": "razor-outlands",
         "aliases": [
           "Razor UO Outlands Script",
-          "razor-uo-outlands"
+          "razor-outlands"
         ],
         "extensions": [
           ".razor"
@@ -42,9 +40,9 @@
     ],
     "grammars": [
       {
-        "language": "razor-uo-outlands",
-        "scopeName": "source.razor-uo-outlands",
-        "path": "./syntaxes/razor-uo-outlands.tmLanguage.json"
+        "language": "razor-outlands",
+        "scopeName": "source.razor-outlands",
+        "path": "./syntaxes/razor-outlands.tmLanguage.json"
       }
     ]
   },

@@ -1,5 +1,5 @@
 {
-  "name": "razor-uo-outlands-lsp-client",
+  "name": "razor-outlands-lsp-client",
   "description": "Razor UO Outlands Script LSP client for VS Code",
   "version": "0.1.0",
   "private": true,

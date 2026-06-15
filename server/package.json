@@ -1,5 +1,5 @@
 {
-  "name": "razor-uo-outlands-lsp-server",
+  "name": "razor-outlands-lsp-server",
   "description": "Razor UO Outlands Script LSP server",
   "version": "0.1.0",
   "private": true,

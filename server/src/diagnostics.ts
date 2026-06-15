@@ -64,7 +64,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
             severity: DiagnosticSeverity.Warning,
             range: makeRange(i, tokenCol, tokenCol + 2),
             message: "'if' statement is missing a condition expression.",
-            source: 'razor-uo-outlands',
+            source: 'razor-outlands',
           });
         }
         stack.push({ type: 'if', line: i, column: tokenCol, keyword: 'if' });
@@ -78,7 +78,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
             severity: DiagnosticSeverity.Warning,
             range: makeRange(i, tokenCol, tokenCol + 5),
             message: "'while' statement is missing a condition expression.",
-            source: 'razor-uo-outlands',
+            source: 'razor-outlands',
           });
         }
         stack.push({ type: 'while', line: i, column: tokenCol, keyword: 'while' });
@@ -92,7 +92,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
             severity: DiagnosticSeverity.Warning,
             range: makeRange(i, tokenCol, tokenCol + 3),
             message: "'for' statement is missing an iteration count.",
-            source: 'razor-uo-outlands',
+            source: 'razor-outlands',
           });
         }
         stack.push({ type: 'for', line: i, column: tokenCol, keyword: 'for' });
@@ -110,7 +110,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
             severity: DiagnosticSeverity.Error,
             range: makeRange(i, tokenCol, tokenCol + 5),
             message: 'Unexpected "endif" without a matching "if".',
-            source: 'razor-uo-outlands',
+            source: 'razor-outlands',
           });
         } else {
           stack.pop();
@@ -124,7 +124,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
             severity: DiagnosticSeverity.Error,
             range: makeRange(i, tokenCol, tokenCol + 8),
             message: 'Unexpected "endwhile" without a matching "while".',
-            source: 'razor-uo-outlands',
+            source: 'razor-outlands',
           });
         } else {
           stack.pop();
@@ -138,7 +138,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
             severity: DiagnosticSeverity.Error,
             range: makeRange(i, tokenCol, tokenCol + 6),
             message: 'Unexpected "endfor" without a matching "for" or "foreach".',
-            source: 'razor-uo-outlands',
+            source: 'razor-outlands',
           });
         } else {
           stack.pop();
@@ -153,7 +153,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
             severity: DiagnosticSeverity.Error,
             range: makeRange(i, tokenCol, tokenCol + firstToken.length),
             message: `"${firstToken}" without a matching "if".`,
-            source: 'razor-uo-outlands',
+            source: 'razor-outlands',
           });
         }
         break;
@@ -167,7 +167,7 @@ export function validateDocument(textDocument: TextDocument): Diagnostic[] {
       severity: DiagnosticSeverity.Error,
       range: makeRange(block.line, block.column, block.column + block.keyword.length),
       message: `Unclosed "${block.keyword}" block — missing "${block.type === 'if' ? 'endif' : block.type === 'while' ? 'endwhile' : 'endfor'}".`,
-      source: 'razor-uo-outlands',
+      source: 'razor-outlands',
     });
   }
 

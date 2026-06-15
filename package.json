@@ -1,10 +1,10 @@
 {
-  "name": "razor-uo-lsp",
-  "displayName": "Razor UO Script",
+  "name": "razor-uo-outlands-lsp",
+  "displayName": "Razor UO Outlands LSP",
   "description": "Language support for Razor UO Script (.uos) files with autocompletion, hover docs, and diagnostics",
   "version": "0.1.0",
-  "publisher": "razor-uo",
-  "icon": "icon.png",
+  "publisher": "AlexandreStapenhorst",
+  "icon": "icon.webp",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -14,7 +14,11 @@
   "keywords": [
     "razor",
     "ultima online",
+    "outlands",
+    "uo outlans",
+    "ultima online outlands",
     "uo",
+    "lsp",
     "script",
     "uos"
   ],

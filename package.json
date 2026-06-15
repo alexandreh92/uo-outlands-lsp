@@ -2,7 +2,7 @@
   "name": "razor-uo-outlands-lsp",
   "displayName": "Razor UO Outlands LSP",
   "description": "Language support for Razor UO Script (.uos) files with autocompletion, hover docs, and diagnostics",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "AlexandreStapenhorst",
   "icon": "icon.webp",
   "engines": {
@@ -22,27 +22,29 @@
     "script",
     "uos"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:razor-uo-outlands"
+  ],
   "main": "./client/out/extension.js",
   "contributes": {
     "languages": [
       {
-        "id": "razor-uo",
+        "id": "razor-uo-outlands",
         "aliases": [
-          "Razor UO Script",
-          "razor-uo"
+          "Razor UO Outlands Script",
+          "razor-uo-outlands"
         ],
         "extensions": [
-          ".uos"
+          ".razor"
         ],
         "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "razor-uo",
-        "scopeName": "source.razor-uo",
-        "path": "./syntaxes/razor-uo.tmLanguage.json"
+        "language": "razor-uo-outlands",
+        "scopeName": "source.razor-uo-outlands",
+        "path": "./syntaxes/razor-uo-outlands.tmLanguage.json"
       }
     ]
   },
@@ -50,15 +52,18 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -b",
     "watch": "tsc -b -w",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "build": "vsce package",
+    "vsce:list": "vsce ls"
   },
   "devDependencies": {
     "@types/node": "^18.19.0",
+    "@vscode/vsce": "^3.9.2",
     "typescript": "^5.3.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/razor-uo/razor-uo-lsp.git"
+    "url": "https://github.com/alexandreh92/uo-outlands-lsp"
   },
   "license": "MIT"
 }

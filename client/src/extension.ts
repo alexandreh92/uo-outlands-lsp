@@ -30,8 +30,8 @@ export function activate(context: ExtensionContext): void {
 
   const clientOptions: LanguageClientOptions = {
     documentSelector: [
-      { scheme: 'file', language: 'razor-uo' },
-      { scheme: 'untitled', language: 'razor-uo' },
+      { scheme: 'file', language: 'razor-uo-outlands' },
+      { scheme: 'untitled', language: 'razor-uo-outlands' },
     ],
     synchronize: {
       fileEvents: workspace.createFileSystemWatcher('**/*.uos'),
@@ -39,7 +39,7 @@ export function activate(context: ExtensionContext): void {
   };
 
   client = new LanguageClient(
-    'razor-uo-lsp',
+    'razor-uo-outlands-lsp',
     'Razor UO Script Language Server',
     serverOptions,
     clientOptions

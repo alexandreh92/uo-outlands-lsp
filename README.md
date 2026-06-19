@@ -17,8 +17,7 @@ This project aims to improve the scripting experience by providing editor suppor
 
 Create a file with `.razor` extension and open it in VSCode. Or, you can create a new file and set the language manually:
 
-[![Watch demo](https://img.youtube.com/vi/XXXX/hqdefault.jpg)](https://github.com/user-attachments/assets/e7360695-3d12-4f2e-9363-fb33c84c114b)
-
+![Demo](./assets/demo.gif)
 
 ## Motivation
 

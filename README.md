@@ -13,6 +13,12 @@ This project aims to improve the scripting experience by providing editor suppor
 
 > More features are planned and contributions are welcome.
 
+## How to use it
+
+Create a file with `.razor` extension and open it in VSCode. Or, you can create a new file and set the language manually:
+
+https://github.com/user-attachments/assets/e7360695-3d12-4f2e-9363-fb33c84c114b
+
 ## Motivation
 
 Razor scripting is a powerful way to automate and enhance gameplay in UO Outlands, but the tooling available for writing scripts has historically been limited.

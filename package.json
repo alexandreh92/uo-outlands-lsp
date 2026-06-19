@@ -52,7 +52,8 @@
     "build:server": "pnpm --filter razor-outlands-lsp-server build",
     "build": "pnpm run build:client && pnpm run build:server && pnpm run package",
     "package": "pnpm exec vsce package --no-dependencies",
-    "vsce:list": "vsce ls"
+    "vsce:list": "vsce ls",
+    "bump": "pnpm version patch --sign-git-tag"
   },
   "devDependencies": {
     "@types/node": "^18.19.0",

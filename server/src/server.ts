@@ -12,6 +12,7 @@ import {
   Hover,
   MarkupKind,
   CompletionParams,
+  TextEdit,
 } from 'vscode-languageserver/node';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 
@@ -54,6 +55,7 @@ connection.onInitialize((_params: InitializeParams): InitializeResult => {
         triggerCharacters: ["'", '"', ' ', '@'],
       },
       hoverProvider: true,
+      documentFormattingProvider: true,
     },
   };
 });
@@ -279,6 +281,54 @@ function getWordAtPosition(line: string, character: number): string | null {
   if (start === end) return null;
   return line.substring(start, end);
 }
+
+// ---------------------------------------------------------------------------
+// Formatter
+// ---------------------------------------------------------------------------
+
+function formatScript(text: string): string {
+  let indent = 0;
+
+  return text
+    .split(/\r?\n/)
+    .map((line) => {
+      const trimmed = line.trim();
+
+      if (/^(endif|endwhile|endfor|else|elseif)/i.test(trimmed)) {
+        indent = Math.max(0, indent - 1);
+      }
+
+      const result = `${'  '.repeat(indent)}${trimmed}`;
+
+      if (/^(if|while|for|foreach|else|elseif)/i.test(trimmed)) {
+        indent++;
+      }
+
+      return result;
+    })
+    .join('\n');
+}
+
+connection.onDocumentFormatting((params): TextEdit[] => {
+  const document = documents.get(params.textDocument.uri);
+
+  if (!document) {
+    return [];
+  }
+
+  const originalText = document.getText();
+  const formattedText = formatScript(originalText);
+
+  return [
+    TextEdit.replace(
+      {
+        start: { line: 0, character: 0 },
+        end: document.positionAt(originalText.length),
+      },
+      formattedText
+    ),
+  ];
+});
 
 // ---------------------------------------------------------------------------
 // Boot

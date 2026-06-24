@@ -34,7 +34,7 @@ export function activate(context: ExtensionContext): void {
       { scheme: 'untitled', language: 'razor-outlands' },
     ],
     synchronize: {
-      fileEvents: workspace.createFileSystemWatcher('**/*.uos'),
+      fileEvents: workspace.createFileSystemWatcher('**/*.razor'),
     },
   };
 

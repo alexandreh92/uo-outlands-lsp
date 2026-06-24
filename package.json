@@ -2,7 +2,7 @@
   "name": "razor-outlands-lsp",
   "displayName": "RazorUO Outlands LSP",
   "description": "Language support for Razor UO Script (.razor) files with autocompletion, hover docs, and diagnostics",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "publisher": "StapzDevelopment",
   "icon": "icon.webp",
   "engines": {
